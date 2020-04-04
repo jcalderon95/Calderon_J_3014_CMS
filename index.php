@@ -1,8 +1,24 @@
 <?php
 require_once 'load.php';
 
-    $products_table = 'tbl_products';
-    $getProducts = getAll($products_table);
+
+
+    if (isset($_GET['filter'])) {
+        //Filter
+        $args = array(
+            'tbl' => 'tbl_products',
+            'tbl2' => 'tbl_category',
+            'tbl3' => 'tbl_product_category',
+            'col' => 'product_id',
+            'col2' => 'category_id',
+            'col3' => 'category_name',
+            'filter' => $_GET['filter'],
+        );
+        $getProducts = getProductsByFilter($args);
+    } else {
+        $products_table = 'tbl_products';
+        $getProducts = getAll($products_table);
+    }
 ?>
 
 <!DOCTYPE html>
