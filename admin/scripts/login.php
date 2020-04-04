@@ -62,3 +62,8 @@ function confirm_logged_in(){
         redirect_to('admin_login.php');
     }
 }
+
+function logout(){
+    session_destroy();
+    redirect_to('admin_login.php');
+}
