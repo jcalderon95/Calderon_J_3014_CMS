@@ -1,8 +1,6 @@
 <?php
 require_once 'load.php';
 
-
-
     if (isset($_GET['filter'])) {
         //Filter
         $args = array(
