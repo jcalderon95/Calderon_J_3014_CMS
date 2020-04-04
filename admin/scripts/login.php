@@ -44,7 +44,11 @@ function login($username, $password, $ip){
         }
 
         if(isset($id)){
-            redirect_to('index.php');
+            if($first_login){
+                redirect_to('index.php');
+            }else{
+                redirect_to('admin_edituser.php');
+            }
         }else{
             $message = 'Wrong password!';
         }
