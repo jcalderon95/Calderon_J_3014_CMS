@@ -29,6 +29,7 @@ function login($username, $password, $ip){
             $message = 'You just logged in!';
             $_SESSION['user_id'] = $id;
             $_SESSION['user_name'] = $found_user['user_fname'];
+            $first_login = $found_user['first_login'];
 
             //TODO: finish the following lines so that when user logged in
             // The user_ip column get updated by the $ip
