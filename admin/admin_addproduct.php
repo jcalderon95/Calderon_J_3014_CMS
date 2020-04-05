@@ -62,5 +62,6 @@ if (isset($_POST['submit'])) {
 
     <br><br>
     <a href="index.php">Go Back...</a>
+    
 </body>
 </html>

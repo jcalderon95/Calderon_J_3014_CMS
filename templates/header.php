@@ -8,6 +8,7 @@
             <li><a href="index.php?filter=Footwear">Footwear</a></li>
             <li><a href="index.php?filter=Gear">Gear</a></li>
             <li><a href="index.php">All</a></li>
+            
         </ul>
     </nav>
 </header>
