@@ -29,13 +29,13 @@ if(isset($_POST['submit'])){
     <?php echo !empty($message)? $message: ''; ?>
     <form action="admin_createuser.php" method="post">
         <label>Your Name</label>
-        <input type="text" name="fname" value=""><br><br>
+        <input type="text" name="fname" value="" required><br><br>
         <label>Username</label>
-        <input type="text" name="username" value=""><br><br>
+        <input type="text" name="username" value="" required><br><br>
         <label>Password</label>
-        <input type="text" name="password" value=""><br><br>
+        <input type="text" name="password" value="" required><br><br>
         <label>Email</label>
-        <input type="email" name="email" value=""><br><br>
+        <input type="email" name="email" value="" required><br><br>
         <button name="submit">Create User</button>
         <br><br>
         <a href="index.php">Go Back...</a>

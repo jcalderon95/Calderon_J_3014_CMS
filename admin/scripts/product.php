@@ -62,3 +62,30 @@ function addProduct($product)
         return $error;
     }
 }
+
+function deleteProduct($id){
+    $pdo = Database::getInstance()->getConnection();
+    $delete_product_query = 'SELECT * FROM tbl_products WHERE product_id = :id; ';
+    $delete_product_query .= 'DELETE FROM tbl_product_category WHERE product_id = :id; DELETE FROM tbl_products WHERE product_id = :id';
+    $delete_product_set = $pdo->prepare($delete_product_query);
+    $delete_product_result = $delete_product_set->execute(
+        array(
+            ':id'=>$id
+        )
+    );
+    
+    while($found_product = $delete_product_set->fetch(PDO::FETCH_ASSOC)){
+        
+        $path = "../images/" . $found_product['product_image'];
+        unlink($path);
+
+    }
+
+    //If everything went through, redirect to admin_deleteproduct.php
+    //Otherwise, return false
+    if($delete_product_result && $delete_product_set->rowCount() > 0){
+        redirect_to('admin_deleteproduct.php');
+    }else{
+        return false;
+    }
+}

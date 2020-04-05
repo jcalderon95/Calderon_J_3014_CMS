@@ -15,7 +15,8 @@ if (isset($_POST['submit'])) {
         'description' =>  trim($_POST['description']),
         'category'    =>  trim($_POST['category']),
     );
- 
+
+
     $result  = addProduct($product);
     $message = $result;
 }
@@ -32,32 +33,32 @@ if (isset($_POST['submit'])) {
     <?php echo !empty($message) ? $message : ''; ?>
     <form action="admin_addproduct.php" method="post" enctype="multipart/form-data">
         <label>Product Image:</label><br>
-        <input type="file" name="image" value=""><br><br>
+        <input type="file" name="image" value="" required><br><br>
 
         <label>Product Name:</label><br>
-        <input type="text" name="name" value=""><br><br>
+        <input type="text" name="name" value="" required><br><br>
 
         <label>Product Brand:</label><br>
-        <input type="text" name="brand" value=""><br><br>
+        <input type="text" name="brand" value="" required><br><br>
 
         <label>Product Price:</label><br>
-        <input type="text" name="price" value=""><br><br>
+        <input type="text" name="price" value="" required><br><br>
 
         <label>Product Review:</label><br>
         <input type="text" name="review" value=""><br><br>
 
         <label>Product Description:</label><br>
-        <textarea name="description"></textarea><br><br>
+        <textarea name="description" required></textarea><br><br>
 
         <label>Product Category:</label><br>
-        <select name="category">
-            <option>Please Select A Category</option>
+        <select name="category" required>
+            <option value="">Please Select A Category</option>
             <?php while ($row = $categories->fetch(PDO::FETCH_ASSOC)): ?>
                 <option value="<?php echo $row['category_id'] ?>"><?php echo $row['category_name']; ?></option>
             <?php endwhile;?>
         </select>
         <br><br>
-        <button type="submit" name="submit">Add Movie</button>
+        <button type="submit" name="submit">Add Product</button>
     </form>
 
     <br><br>
