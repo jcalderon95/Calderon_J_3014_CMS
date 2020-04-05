@@ -34,6 +34,7 @@ require_once 'load.php';
         <div class="movie-item">
             <img src="images/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>" />
             <h2><?php echo $row['product_name']; ?></h2>
+            <h3>Brand: <?php echo $row['product_brand']; ?></h3>
             <h4>Price: <?php echo $row['product_price']; ?></h4>
             <a href="details.php?id=<?php echo $row['product_id']; ?>">Read More...</a>
         </div>

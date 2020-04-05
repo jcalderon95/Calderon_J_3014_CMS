@@ -44,5 +44,7 @@
         <?php endwhile;?>
         <button type="submit" name="submit">Edit Account</button>
     </form>
+    <br><br>
+    <a href="index.php">Go Back...</a>
 </body>
 </html>

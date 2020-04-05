@@ -25,6 +25,7 @@ if (isset($_GET['id'])) {
             <img src="images/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name'] ?>" />
 
             <h2>Name: <?php echo $row['product_name']; ?></h2>
+            <h3>Brand: <?php echo $row['product_brand']; ?></h3>
             <h4>Price: <?php echo $row['product_price']; ?></h4>
             <h4>Review: <?php echo $row['product_review']; ?></h4>
             <p>Description:<br> <?php echo $row['product_description']; ?></p>
