@@ -68,7 +68,7 @@ function editUser($id, $fname, $username, $password, $email){
     $pdo = Database::getInstance()->getConnection();
 
     $update_user_query = 'UPDATE tbl_user SET user_fname = :fname, user_name = :username,';
-    $update_user_query .= ' user_pass=:password, user_email =:email,';
+    $update_user_query .= ' user_pass= :password, user_email =:email,';
     $update_user_query .= ' first_login = 1 WHERE user_id = :id';
     $update_user_set = $pdo->prepare($update_user_query);
     $update_user_result = $update_user_set->execute(

@@ -89,3 +89,50 @@ function deleteProduct($id){
         return false;
     }
 }
+
+function getOneProduct($id){
+    $pdo = Database::getInstance()->getConnection();
+
+    $get_product_query = 'SELECT * FROM tbl_products WHERE product_id = :id';
+    $get_product_set = $pdo->prepare($get_product_query);
+    $get_product_result = $get_product_set->execute(
+        array(
+            ':id'=>$id
+        )
+    );
+
+    if($get_product_result){
+        return $get_product_set;
+    }else{
+        return 'There was a problem accessing the user';
+    }
+}
+
+function updateProduct($productUpdate){
+    $pdo = Database::getInstance()->getConnection();
+
+    $update_product_query = 'UPDATE tbl_products SET product_name = :product_name, product_price = :product_price, product_review = :product_review,';
+    $update_product_query .= ' product_brand = :product_brand, product_description = :product_description WHERE product_id = :id ;';
+    $update_product_query .= ' UPDATE tbl_product_category SET category_id = :category_id WHERE product_id = :id';
+    $update_product        = $pdo->prepare($update_product_query);
+    $update_product_result = $update_product->execute(
+        array(
+            ':id'                  => $productUpdate['id'],
+            ':product_name'        => $productUpdate['name'],
+            ':product_price'       => $productUpdate['price'],
+            ':product_review'      => $productUpdate['review'],
+            ':product_description' => $productUpdate['description'],
+            ':category_id'         => $productUpdate['category'],
+            ':product_brand'       => $productUpdate['brand']
+        )
+    );
+
+    if($update_product_result){
+        redirect_to('admin_editproduct.php');
+    }else{
+
+        return 'Guess you got canned...';
+    }
+
+
+}
